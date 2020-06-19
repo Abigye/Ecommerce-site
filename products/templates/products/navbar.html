@@ -9,17 +9,22 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li {% if request.path == 'contact' %}class="nav-item active"{% else %}class="nav-item"{% endif %}>
-        <a class="nav-link" href="#">Men <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Women</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Electronics</a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" href="#">Kids</a>
-      </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Category </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item"  href="#sportswear">Sportswear</a>
+        <a  class="dropdown-item" href="#men"> Men </a>
+        <a class="dropdown-item"  href="#women"> Women </a>
+        <a  class="dropdown-item" href="#kids">Kids</a>
+        <a class="dropdown-item"  href="#fashion"> Fashion</a>     
+        <a class="dropdown-item"  href="#electronics"> Electronics</a>
+        <a class="dropdown-item"  href="#household">Household</a>
+        <a class="dropdown-item"  href="#shoes"> Shoes</a>
+        <a class="dropdown-item"  href="#clothing">Clothing</a>
+        <a class="dropdown-item"  href="#bags">Bags</a>
+    </div>
+  </li>     
       {% if request.user.is_authenticated %}
       <li class="nav-item">
         <a class="nav-link" href="{% url 'mainapp:cart-home' %}">
@@ -40,7 +45,7 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="accounts/logout/">Logout</a>
         </div>
-      </li>
+      </li>       
       {% else %}
        <li class="nav-item">
         <a  class="btn btn-primary" href="/accounts/login/">Login / Register</a>
